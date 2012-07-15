@@ -1,19 +1,23 @@
 package com.twu28.biblioteca;
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
+
 import org.junit.Test;
 
 public class BibliotecaTest {
 
-@Test
-	public void DoesPanelWelcome() {
-		assertEquals(new Biblioteca().getPanelMessage(),"Welcome");
-	}
 
 @Test
-	public void DoesFrameHaveMultipleOptions(){
-	Ensemble.Biblioteca go = new Ensemble.Biblioteca();
-	go.mainFrameBuilder();
-	assertTrue(go.numberOfMenuItems > 0);
+	public void isWelcomeTheFirstMessage() {
+
+    Assert.assertTrue(Biblioteca.getMessage()== "Welcome");
 }
+
+@Test
+    public void isThereMoreThanOneOption(){
+    Assert.assertTrue(Biblioteca.getNumberOfOptions()> 1);
+}
+
+
 }
