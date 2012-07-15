@@ -1,7 +1,8 @@
-package Ensemble;
+package com.twu28.biblioteca;
 import java.awt.BorderLayout;
-
+import java.awt.*;
 import javax.swing.*;
+import java.lang.*;
 
 public class Biblioteca {
     String message = "Welcome";
@@ -9,12 +10,10 @@ public class Biblioteca {
 	public  int numberOfMenuItems = 0; 
 	JMenuItem menuOne;
 	JMenuItem menuTwo;
-	
-	
+
 public String getPanelMessage (){
 	return message;
 }
-
 
 
 public void mainFrameBuilder(){

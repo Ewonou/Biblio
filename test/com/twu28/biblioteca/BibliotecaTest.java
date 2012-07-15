@@ -1,5 +1,4 @@
-package Ensemble;
-
+package com.twu28.biblioteca;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -13,7 +12,7 @@ public class BibliotecaTest {
 
 @Test
 	public void DoesFrameHaveMultipleOptions(){
-	Biblioteca go = new Biblioteca();
+	Ensemble.Biblioteca go = new Ensemble.Biblioteca();
 	go.mainFrameBuilder();
 	assertTrue(go.numberOfMenuItems > 0);
 }
