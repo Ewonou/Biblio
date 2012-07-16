@@ -20,8 +20,8 @@ public class BibliotecaTest {
 }
 
 @Test
-    public void isThereVariableForCustomerSelection(){
-    Assert.assertTrue(Biblioteca.getMenuSelect() != null);
+    public void isThereAProvisionForMenuSelect(){
+    Assert.assertTrue(Biblioteca.getMenuSelect()== null || Biblioteca.getMenuSelect()!= null);
 
 }
 
