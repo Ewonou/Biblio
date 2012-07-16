@@ -19,5 +19,10 @@ public class BibliotecaTest {
     Assert.assertTrue(Biblioteca.getNumberOfOptions()> 1);
 }
 
+@Test
+    public void isThereVariableForCustomerSelection(){
+    Assert.assertTrue(Biblioteca.getMenuSelect() != null);
+
+}
 
 }
