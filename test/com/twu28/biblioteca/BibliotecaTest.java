@@ -6,22 +6,23 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class BibliotecaTest {
+    Biblioteca go = new Biblioteca();
 
 
 @Test
 	public void isWelcomeTheFirstMessage() {
 
-    Assert.assertTrue(Biblioteca.getMessage()== "Welcome");
+    Assert.assertTrue(go.getMessage()== "Welcome");
 }
 
 @Test
     public void isThereMoreThanOneOption(){
-    Assert.assertTrue(Biblioteca.getNumberOfOptions()> 1);
+    Assert.assertTrue(go.getNumberOfOptions()> 1);
 }
 
 @Test
     public void isThereAProvisionForMenuSelect(){
-    Assert.assertTrue(Biblioteca.getMenuSelect()== null || Biblioteca.getMenuSelect()!= null);
+    Assert.assertTrue(go.getMenuSelect()== null || go.getMenuSelect()!= null);
 
 }
 
