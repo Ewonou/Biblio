@@ -27,5 +27,12 @@ public class BibliotecaTest {
  @Test
     public void doesInvalidInputDisplayMsg(){
     Assert.assertFalse(go.selectAnOption("no"));
-    }
+}
+ @Test
+ public void canCustomerViewAllBooks(){
+    BookManager now = new BookManager();
+    int bookCount = now.displayBooks();
+    Assert.assertTrue(bookCount == 3);
+ }
+
 }
