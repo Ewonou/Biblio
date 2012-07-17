@@ -1,0 +1,94 @@
+//A customer should be notified if their selected book was reserved 
+//successfully with “Thank You! Enjoy the book.”
+
+//Solution
+//Let's create a method called successfulReserve()
+//compare bookReference(entered by customer) to data in reservedBooks.txt
+//if match confirmed, then display "Thank You! Enjoy the book."
+
+//This method would be called by BookReservation and take bookReference as 
+//input
+
+@Test
+public void isCustomerNotifiedOfSuccessfulReserve()
+{
+BookManager go = new BookManager();
+Assert.assertTrue(go.successfulReserved(2)// we stored 2 in reservedBook.txt
+}
+
+//code
+
+public bool successfulReserve(int bookReference)
+{
+bool successMsg = false;
+try
+{
+FileReader bookReader = new FileReader(bookAuthor);
+
+BufferedReader reader = new BufferedReader(bookReader);
+
+string line = null ;
+
+
+while ((line = reader.readline())!= null)
+{
+int systemBookNumber = Integer.parseInt(line);
+if (systemBookNumber == bookReference)
+{
+System.out.println(""Thank You! Enjoy the book.");
+successMsg = true;
+break;
+}
+}
+catch (Exception ex)
+{
+ex.printStackTrace();
+}
+return successMsg;
+}
+
+// Changes in bookReservation()
+
+
+public bool bookReservation (int bookReference)
+{
+bool foundBook;
+bool reserveSuccess = false;
+try
+{
+File bookAuthor =  new File("booksAndAuthors.txt");
+
+FileReader bookReader = new FileReader(bookAuthor);
+
+BufferedReader reader = new BufferedReader(bookReader);
+
+
+BufferedWriter writer = new BufferedWriter(new FileWriter("reservedBooks.txt"));
+
+
+String line = null ;
+
+while ((line = reader.readline())!= null)
+{
+String[] lineSegments = line.split("/");
+int systemBookNumber = Integer.parseInt(lineSegments[0]);
+if (systemBookNumber == bookReference)
+{
+foundBook = true;
+break;
+}
+}
+if (foundBook)
+{
+writer.write(bookReference.ToString());
+
+}
+catch (Exception ex)
+{
+ex.printStackTrace();
+}
+
+return bookReservation (bookReference);
+}
+
+
