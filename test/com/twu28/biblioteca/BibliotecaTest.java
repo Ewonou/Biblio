@@ -39,7 +39,11 @@ public class BibliotecaTest {
  {
      Assert.assertTrue(now.bookReservation(1));
  }
- @Test
 
+    @Test
+    public void isCustomerNotifiedOfSuccessfulReserve()
+    {
+        Assert.assertTrue(now.successfulReserved(2));
+    }
 
 }

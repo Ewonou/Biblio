@@ -59,4 +59,8 @@ public class BookManager {
             }
             return reserveSuccess;
     }
+
+    public boolean successfulReserved(int bookReference) {
+        return false;
+    }
 }
