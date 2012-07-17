@@ -2,7 +2,7 @@ package com.twu28.biblioteca;
 import java.util.*;
 import java.io.*;
 public class Biblioteca {
-    private String[] menuOptions = {"Menu1","view","Menu 3"};
+    private String[] menuOptions = {"Menu1","view","reserve"};
     private String menuSelect;
 
 public void biblioteca()
@@ -11,7 +11,7 @@ public void biblioteca()
 
    displayMessage();
    displayOptions();
-   System.out.print("Please enter your selection :");
+   System.out.print("Please enter your selection: ");
    boolean validOption = false;
    while (validOption)
    {
@@ -22,6 +22,13 @@ public void biblioteca()
     if (menuSelect == "view")
     {
        now.displayBooks();
+    }
+    if (menuSelect == "reserve")
+    {
+        System.out.print("Please enter the reference number of the desired book: ");
+        Scanner bookNumScan = new Scanner(System.in);
+        int bookNum = bookNumScan.nextInt();
+        now.bookReservation(bookNum);
     }
 }
 

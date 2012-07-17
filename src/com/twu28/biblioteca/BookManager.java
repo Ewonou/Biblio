@@ -33,17 +33,10 @@ public class BookManager {
         try
         {
             File bookAuthor =  new File("booksAndAuthors.txt");
-
             FileReader bookReader = new FileReader(bookAuthor);
-
             BufferedReader reader = new BufferedReader(bookReader);
-
-
             BufferedWriter writer = new BufferedWriter(new FileWriter("reservedBooks.txt"));
-
-
             String line = null ;
-
             while ((line = reader.readLine())!= null)
             {
                 String[] lineSegments = line.split("/");
