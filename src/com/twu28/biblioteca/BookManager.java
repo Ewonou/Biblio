@@ -61,6 +61,27 @@ public class BookManager {
     }
 
     public boolean successfulReserved(int bookReference) {
-        return false;
+        boolean successMsg = false;
+        try
+        {
+            FileReader reserveChecker = new FileReader("reservedBooks.txt");
+            BufferedReader reader = new BufferedReader(reserveChecker);
+            String line = null ;
+            while ((line = reader.readLine())!= null)
+            {
+                int systemBookNumber = Integer.parseInt(line);
+                if (systemBookNumber == bookReference)
+                {
+                    System.out.println("Thank You! Enjoy the book.");
+                    successMsg = true;
+                    break;
+                }
+            }
+        }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            return successMsg;
     }
 }
