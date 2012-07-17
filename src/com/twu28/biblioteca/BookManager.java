@@ -12,13 +12,9 @@ public class BookManager {
         try
         {
             File bookAuthor = new File("booksAndAuthors.txt");
-
             FileReader bookReader = new FileReader(bookAuthor);
-
             BufferedReader reader = new BufferedReader(bookReader);
-
             String line = null ;
-
             while ((line = reader.readLine())!= null)
             {
                 System.out.println(line);
@@ -30,7 +26,10 @@ public class BookManager {
         {
             ex.printStackTrace();
         }
-
         return bookDisplayed;
+    }
+
+    public boolean bookReservation(int bookReference) {
+        return false;
     }
 }

@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class BibliotecaTest {
     Biblioteca go = new Biblioteca();
+    BookManager now = new BookManager();
 
 
 @Test
@@ -30,9 +31,13 @@ public class BibliotecaTest {
 }
  @Test
  public void canCustomerViewAllBooks(){
-    BookManager now = new BookManager();
     int bookCount = now.displayBooks();
     Assert.assertTrue(bookCount == 3);
+ }
+ @Test
+ public void canReserveBook()
+ {
+     Assert.assertTrue(now.bookReservation(1));
  }
 
 }

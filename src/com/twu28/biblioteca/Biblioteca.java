@@ -5,7 +5,7 @@ public class Biblioteca {
     private String[] menuOptions = {"Menu1","Menu2","Menu 3"};
     private String menuSelect;
 
-public void Biblio()
+public void biblioteca()
 {
 
    displayMessage();
@@ -20,6 +20,8 @@ public void Biblio()
 
    }
 }
+
+
     public  String displayMessage()
     {
          final String firstMsg = "Welcome";
@@ -54,6 +56,7 @@ public void Biblio()
             }
         return selected;
     }
+
 
 
 }
