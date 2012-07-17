@@ -2,11 +2,12 @@ package com.twu28.biblioteca;
 import java.util.*;
 import java.io.*;
 public class Biblioteca {
-    private String[] menuOptions = {"Menu1","Menu2","Menu 3"};
+    private String[] menuOptions = {"Menu1","view","Menu 3"};
     private String menuSelect;
 
 public void biblioteca()
 {
+   BookManager now = new BookManager();
 
    displayMessage();
    displayOptions();
@@ -17,8 +18,11 @@ public void biblioteca()
    Scanner scan = new Scanner(System.in);
    menuSelect = scan.next();
    validOption = selectAnOption(menuSelect);
-
    }
+    if (menuSelect == "view")
+    {
+       now.displayBooks();
+    }
 }
 
 

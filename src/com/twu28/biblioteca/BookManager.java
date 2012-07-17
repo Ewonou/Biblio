@@ -1,8 +1,6 @@
 package com.twu28.biblioteca;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 
 public class BookManager {
 
@@ -30,6 +28,42 @@ public class BookManager {
     }
 
     public boolean bookReservation(int bookReference) {
-        return false;
+        boolean foundBook = false;
+        boolean reserveSuccess = false;
+        try
+        {
+            File bookAuthor =  new File("booksAndAuthors.txt");
+
+            FileReader bookReader = new FileReader(bookAuthor);
+
+            BufferedReader reader = new BufferedReader(bookReader);
+
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("reservedBooks.txt"));
+
+
+            String line = null ;
+
+            while ((line = reader.readLine())!= null)
+            {
+                String[] lineSegments = line.split("/");
+                int systemBookNumber = Integer.parseInt(lineSegments[0]);
+                if (systemBookNumber == bookReference)
+                {
+                    foundBook = true;
+                    break;
+                }
+            }
+            if (foundBook)
+            {
+                writer.write(bookReference);
+                reserveSuccess = true;
+            }
+        }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+            return reserveSuccess;
     }
 }
