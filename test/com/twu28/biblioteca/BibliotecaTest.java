@@ -23,6 +23,9 @@ public class BibliotecaTest {
 @Test
     public void canSelectMenuOption(){
     Assert.assertTrue(go.selectAnOption("Menu1"));
-
 }
+ @Test
+    public void doesInvalidInputDisplayMsg(){
+    Assert.assertFalse(go.selectAnOption("no"));
+    }
 }

@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 public class Biblioteca {
     private String[] menuOptions = {"Menu1","Menu2","Menu 3"};
-    private static String menuSelect;
+    private String menuSelect;
 
 public void Biblio()
 {
@@ -11,10 +11,14 @@ public void Biblio()
    displayMessage();
    displayOptions();
    System.out.print("Please enter your selection :");
+   boolean validOption = false;
+   while (validOption)
+   {
    Scanner scan = new Scanner(System.in);
    menuSelect = scan.next();
-    selectAnOption(menuSelect);
+   validOption = selectAnOption(menuSelect);
 
+   }
 }
     public  String displayMessage()
     {
@@ -44,6 +48,12 @@ public void Biblio()
                 break;
             }
         }
+            if (selected == false)
+            {
+                System.out.println("Select a valid Option");
+            }
         return selected;
     }
+
+
 }
