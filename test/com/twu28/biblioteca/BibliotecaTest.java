@@ -43,7 +43,7 @@ public class BibliotecaTest {
     @Test
     public void isCustomerNotifiedOfSuccessfulReserve()
     {
-        Assert.assertTrue(now.successfulReserved(2));
+        Assert.assertTrue(now.successfulReserved(1));
     }
 
 }

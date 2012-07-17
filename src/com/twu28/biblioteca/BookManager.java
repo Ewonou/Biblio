@@ -29,7 +29,6 @@ public class BookManager {
 
     public boolean bookReservation(int bookReference) {
         boolean foundBook = false;
-        boolean reserveSuccess = false;
         try
         {
             File bookAuthor =  new File("booksAndAuthors.txt");
@@ -49,15 +48,18 @@ public class BookManager {
             }
             if (foundBook)
             {
-                writer.write(bookReference);
-                reserveSuccess = true;
+                String bookRef = Integer.toString(bookReference);
+                writer.write(bookRef);
             }
+            writer.flush();
+            writer.close();
+            reader.close();
         }
             catch (Exception ex)
             {
                 ex.printStackTrace();
             }
-            return reserveSuccess;
+            return successfulReserved(bookReference);
     }
 
     public boolean successfulReserved(int bookReference) {
@@ -77,6 +79,7 @@ public class BookManager {
                     break;
                 }
             }
+            reader.close();
         }
             catch (Exception ex)
             {
