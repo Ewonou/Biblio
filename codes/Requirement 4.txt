@@ -1,0 +1,39 @@
+// Requirement 4
+
+@Test
+
+public void doesInvalidInputDisplayMsg()
+{
+Assert.assertFalse(isItValidInput("no"));
+}
+
+Code to be added
+Method
+
+public bool isItValidInput(String input)
+{
+bool valid = false;
+	for (String elt:menuOptions)
+	{
+	if(input == elt)
+		{
+			valid = true;
+			break;
+		}
+	}
+	if (valid == false)
+		{ System.out.println("Select a valid Option");
+		}
+return valid;
+}
+
+Modification to method go()
+System.out.println("Please Enter Your Selection");
+bool validOption = false;
+while (validOption)
+{
+Scanner scan = new Scanner(System.in);
+menuSelect = scan.next();
+validOption = isItValidInput(menuSelect);
+}
+

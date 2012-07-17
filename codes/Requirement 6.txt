@@ -1,0 +1,103 @@
+//Requirement: A customer should be able to reserve a book for collection.
+
+//easiest way would be to assign reference numbers to each book
+//In order to reserve a book, the customer should just enter
+//reference number
+
+//solution
+//Assign reference number to each book (1-3) and seperate
+//reference numbers with other data with "/"
+//modify class name to BookManager
+//add new method called bookReservation()
+
+
+@Test
+
+public void canReserveBook()
+{
+BookMangager go = new BookManager();
+Assert.assertTrue(go.bookReservation(bookReference)) //replace bookReference with number
+}
+
+//coding new method
+
+public bool bookReservation (int bookReference)
+{
+bool foundBook;
+try
+{
+File bookAuthor =  new File("booksAndAuthors.txt");
+
+FileReader bookReader = new FileReader(bookAuthor);
+
+BufferedReader reader = new BufferedReader(bookReader);
+
+string line = null ;
+
+while ((line = reader.readline())!= null)
+{
+String[] lineSegments = line.split("/");
+int systemBookNumber = Integer.parseInt(lineSegments[0]);
+if (systemBookNumber == bookReference)
+{
+foundBook = true;
+break;
+}
+}
+catch (Exception ex)
+{
+ex.printStackTrace();
+}
+return foundBook;
+}
+// refactoring suggestion (5 lines of code similar in methods
+// bookReservation and DisplayBook
+// File bookAuthor... up to string line defined in other method
+// called fileInitialization (? issue with Exception)
+// no actual reservation was done with code. Solution:
+//add file to project called reservedBooks such that
+//each book reserved is logged into that file
+
+
+
+public bool bookReservation (int bookReference)
+{
+bool foundBook;
+bool reserveSuccess = false;
+try
+{
+File bookAuthor =  new File("booksAndAuthors.txt");
+
+FileReader bookReader = new FileReader(bookAuthor);
+
+BufferedReader reader = new BufferedReader(bookReader);
+
+
+BufferedWriter writer = new BufferedWriter(new FileWriter("reservedBooks.txt"));
+
+
+String line = null ;
+
+while ((line = reader.readline())!= null)
+{
+String[] lineSegments = line.split("/");
+int systemBookNumber = Integer.parseInt(lineSegments[0]);
+if (systemBookNumber == bookReference)
+{
+foundBook = true;
+break;
+}
+}
+if (foundBook)
+{
+writer.write(bookReference.ToString());
+reserveSuccess = true;
+}
+catch (Exception ex)
+{
+ex.printStackTrace();
+}
+return reserveSuccess;
+}
+
+

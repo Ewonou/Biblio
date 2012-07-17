@@ -1,0 +1,51 @@
+//Requirement 5
+//A customer should be able to view all books the library has.
+// Solution
+// Create a file with all the books, name and author
+// Console should display all the book when an option is selected
+// Change one Menu option to View. 
+
+//file created in directory called booksAndAuthors
+
+// test code
+@Test
+public void canCustomerViewBooks(int numberBooksExpected)
+{
+BooksReader go = new BooksReader();
+int bookdisplayed = go.displayBooks();
+Assert.assertTrue(bookCount == numberBooks);
+}
+
+//new Class
+
+public class BooksReader(){
+
+public int displayBooks()
+{
+int bookDisplayed = 0;
+try
+{
+File bookAuthor = new new File("booksAndAuthors")
+
+FileReader bookReader = new FileReader(bookAuthor);
+
+BufferedReader reader = new BufferedReader(bookReader);
+
+string line = null ;
+
+while ((line = reader.readline())!= null)
+{
+System.out.println(line);
+bookDisplayed++;
+}
+reader.close();
+}
+catch (Exception ex)
+{
+ex.printStackTrace();
+}
+return bookDisplayed;
+}
+
+
+
