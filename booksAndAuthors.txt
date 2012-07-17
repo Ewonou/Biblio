@@ -1,3 +1,3 @@
-1/ Head First Design Patterns By Eric & Elisabeth Freeman
-2/ Don't Make me Think by Steve Krug
-3/ The Art of Agile Development by James Shore & Shane Warden
+Head First Design Patterns By Eric & Elisabeth Freeman
+Don't Make me Think by Steve Krug
+The Art of Agile Development by James Shore & Shane Warden
