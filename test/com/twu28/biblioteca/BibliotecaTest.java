@@ -10,20 +10,19 @@ public class BibliotecaTest {
 
 
 @Test
-	public void isWelcomeTheFirstMessage() {
+	public void isWelcomeDisplayed() {
 
-    Assert.assertTrue(go.getMessage()== "Welcome");
+    Assert.assertTrue(go.displayMessage()== "Welcome");
 }
 
 @Test
     public void isThereMoreThanOneOption(){
-    Assert.assertTrue(go.getNumberOfOptions()> 1);
+    Assert.assertTrue(go.displayOptions()> 1);
 }
 
 @Test
-    public void isThereAProvisionForMenuSelect(){
-    Assert.assertTrue(go.getMenuSelect()== null || go.getMenuSelect()!= null);
+    public void canSelectMenuOption(){
+    Assert.assertTrue(go.selectAnOption("Menu1"));
 
 }
-
 }
