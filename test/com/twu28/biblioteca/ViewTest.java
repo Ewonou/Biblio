@@ -5,17 +5,22 @@ import org.junit.Test;
 
 public class ViewTest{
 
-String name = "magic";
-View sut = new View(name);
 
  @Test
 public void DoesItDisplayOutput()
  {
+     String name = "magic";
+
+     View sut = new View(name);
+
      sut.display();
-     StringBuffer expectedOutput = new StringBuffer();
+
      StringBuffer result = new StringBuffer();
-     expectedOutput.append(name);
-     result.append(sut.object);
+     result.append(sut.systemData);
+
+     StringBuffer expectedOutput = new StringBuffer();
+     expectedOutput.append("magic");
+
      Assert.assertEquals(result, expectedOutput);
  }
 }

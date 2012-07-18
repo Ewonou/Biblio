@@ -5,8 +5,9 @@ import java.io.ByteArrayOutputStream;
 
 public class View {
 
-ByteArrayOutputStream object = new ByteArrayOutputStream();
+ByteArrayOutputStream systemData;
 private String toDisplay;
+
 
 public View(String toBeDisplayed){
 toDisplay = toBeDisplayed;
@@ -14,10 +15,12 @@ toDisplay = toBeDisplayed;
 
 public void display( ){
 
+systemData = new ByteArrayOutputStream();
+
 for (int i = 0; i < toDisplay.length(); i++){
-object.write(toDisplay.charAt(i));
+systemData.write(toDisplay.charAt(i));
 }
-System.out.println(toDisplay);
+System.out.println(systemData);
 }
 }
 
