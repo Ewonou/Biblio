@@ -1,29 +1,22 @@
 package com.twu28.biblioteca;
 
-import java.io.ByteArrayOutputStream;
 
 public class Book {
-String name;
-String author;
-int quantity;
-String outputInfo;
-ByteArrayOutputStream bookInfo;
+    private String name;
+    private String author;
 
-public void viewBook(){
-outputInfo =  name + " By " +author;
-View go = new View(outputInfo);
-ByteArrayOutputStream bookInfo = new ByteArrayOutputStream();
+    public Book(String bookName, String authorName) {
+        name = bookName;
+        author = authorName;
+    }
 
-for (int i = 0; i < outputInfo.length(); i++){
-bookInfo.write(outputInfo.charAt(i));
+    public String getName() {
+        return name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
 }
 
-go.display();
-}
-
-public int getQuantity(){
-return quantity;
-}
-
-}
 
