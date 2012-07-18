@@ -21,6 +21,6 @@ public void DoesItDisplayOutput()
      StringBuffer expectedOutput = new StringBuffer();
      expectedOutput.append("magic");
 
-     Assert.assertEquals(result, expectedOutput);
+     Assert.assertEquals(result.toString(), expectedOutput.toString());
  }
 }
