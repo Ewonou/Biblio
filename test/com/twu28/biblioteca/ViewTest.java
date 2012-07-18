@@ -15,12 +15,6 @@ public void DoesItDisplayOutput()
 
      sut.display();
 
-     StringBuffer result = new StringBuffer();
-     result.append(sut.systemData);
-
-     StringBuffer expectedOutput = new StringBuffer();
-     expectedOutput.append("magic");
-
-     Assert.assertEquals(result, expectedOutput);
+     Assert.assertEquals(sut.systemData.toString(), "magic");
  }
 }
