@@ -11,15 +11,18 @@ import java.util.ArrayList;
  */
 public class Biblioteca {
     private Library library;
+    private MenuList menuList;
 
-    public Biblioteca(Library library) {
+    public Biblioteca(Library library, MenuList menuList) {
         this.library = library;
+        this.menuList = menuList;
     }
 
     public void run() {
-        ArrayList<Book> allBooks = library.getAllBooks();
-        for(Book book:allBooks) {
-            System.out.printf("%s - %s\n",book.getName(), book.getAuthor());
-        }
+        System.out.printf("Welcome\n");
+        ViewMenu go = new ViewMenu(menuList);
+        go.displayMenus();
     }
+
+
 }

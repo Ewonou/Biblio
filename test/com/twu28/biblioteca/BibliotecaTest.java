@@ -6,30 +6,71 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
+import static java.lang.String.copyValueOf;
 import static junit.framework.Assert.assertEquals;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tanuj Mathur
- * Date: 7/18/12
- * Time: 8:54 PM
- * To change this template use File | Settings | File Templates.
- */
 public class BibliotecaTest {
+
     @Test
-    public void shouldDisplayAllLibraryBooksWhenRun() {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        PrintStream outputStream = new PrintStream(stream);
-        System.setOut(outputStream);
-
+    public void ShouldDisplayAWelcomeAtStart()
+    {   //Setup
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outStream);
+        System.setOut(printStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("testBook","testAuthor"));
-        books.add(new Book("anotherBook","anotherAuthor"));
-        Library library = new Library(books);
+        books.add(new Book("GoodBook","GoodAuthor"));
+        Library lib = new Library(books);
+        ArrayList<Menu> menus = new ArrayList<Menu>();
+        menus.add(new Menu("Display"));
+        MenuList menuList = new MenuList(menus);
+        Biblioteca go = new Biblioteca(lib,menuList);
+        go.run();
+        //
 
-        new Biblioteca(library).run();
+        StringBuffer holder = new StringBuffer();
+        String temp =  outStream.toString();
 
-        assertEquals("testBook - testAuthor\nanotherBook - anotherAuthor\n", stream.toString())   ;
+        for(int i = 0; i< 7; i ++)
+        {
+            holder.append(temp.charAt(i));
+        }
+        assertEquals(holder.toString(), "Welcome");
+
     }
-}
+
+    @Test
+    public void ShouldDisplayMenuAtStart(){
+        //Setup
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outStream);
+        System.setOut(printStream);
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("GoodBook","GoodAuthor"));
+        Library lib = new Library(books);
+
+        ArrayList<Menu> menus = new ArrayList<Menu>();
+        menus.add(new Menu("Display"));
+        MenuList menuList = new MenuList(menus);
+        Biblioteca go = new Biblioteca(lib,menuList);
+        go.run();
+        //
+
+        ViewMenu infoMenu = new ViewMenu(menuList);
+        int charCount = infoMenu.getMenuItemCharacterOccupancy();
+
+        StringBuffer holder = new StringBuffer();
+        String temp =  outStream.toString();
+
+        for(int i = 7; i< 15 ; i ++)
+        {
+            holder.append(temp.charAt(i));
+        }
+        assertEquals("\nDisplay", holder.toString());
+
+    }
+
+    }
+
+
+
 
