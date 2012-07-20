@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 public class MenuListTest {
 
@@ -18,4 +19,17 @@ public void ShouldReturnAllMenuInTheMenuList() {
  ArrayList<Menu> menuOptions = menuList.getMenuList();
  assertEquals(menuOptions,expectedMenu);
 }
+ @Test
+  public void ShouldSelectAMenuItem(){
+     ArrayList<Menu> expectedMenu = new ArrayList<Menu>();
+     expectedMenu.add(new Menu ("Show"));
+     expectedMenu.add(new Menu("View"));
+
+     Menu selection = new Menu("Show");
+     MenuList menuList = new MenuList(expectedMenu);
+     menuList.selectAMenu(selection);
+
+     assertTrue(true == expectedMenu.get(0).selected);
+
+ }
 }

@@ -13,4 +13,12 @@ public class MenuList {
     public int getNumberOfMenu(){
         return getMenuList().size();
     }
+
+    public void selectAMenu(Menu selection) {
+     for (Menu item: menuList) {
+        if ( item.equals(selection)){
+            item.setSelected(true);
+     }
+    }
+    }
 }
