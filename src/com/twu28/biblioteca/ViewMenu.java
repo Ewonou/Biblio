@@ -10,15 +10,15 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public class ViewMenu  {
-    MenuList menuList;
+    MenuManager menuManager;
     int charCountOfMenuItems = 0;
 
-public ViewMenu(MenuList menuList){
-    this.menuList = menuList;
+public ViewMenu(MenuManager menuManager){
+    this.menuManager = menuManager;
 }
 
     public void displayMenus() {
-      ArrayList<Menu> currentMenu = menuList.getMenuList();
+      ArrayList<Menu> currentMenu = menuManager.getMenuList();
       for (Menu item: currentMenu)
       {
 

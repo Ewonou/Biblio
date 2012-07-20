@@ -2,9 +2,9 @@ package com.twu28.biblioteca;
 
 import java.util.ArrayList;
 
-public class MenuList {
+public class MenuManager {
     private ArrayList<Menu> menuList;
-    public MenuList(ArrayList<Menu> expectedMenu) {
+    public MenuManager(ArrayList<Menu> expectedMenu) {
         menuList = expectedMenu;
     }
     public ArrayList<Menu> getMenuList() {

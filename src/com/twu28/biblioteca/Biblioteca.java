@@ -1,9 +1,5 @@
 package com.twu28.biblioteca;
 
-import com.sun.xml.internal.stream.Entity;
-
-import java.util.ArrayList;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Tanuj Mathur
@@ -13,17 +9,17 @@ import java.util.ArrayList;
  */
 public class Biblioteca {
     private Library library;
-    private MenuList menuList;
+    private MenuManager menuManager;
 
-    public Biblioteca(Library library, MenuList menuList) {
+    public Biblioteca(Library library, MenuManager menuManager) {
         this.library = library;
-        this.menuList = menuList;
+        this.menuManager = menuManager;
     }
 
 
     public void run() {
         System.out.printf("Welcome\n");
-        ViewMenu go = new ViewMenu(menuList);
+        ViewMenu go = new ViewMenu(menuManager);
         go.displayMenus();
 
         System.out.printf("\nPlease Enter Your Selection:");

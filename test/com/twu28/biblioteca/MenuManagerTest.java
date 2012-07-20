@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
-public class MenuListTest {
+public class MenuManagerTest {
 
 @Test
 
@@ -15,8 +15,8 @@ public void ShouldReturnAllMenuInTheMenuList() {
   ArrayList<Menu> expectedMenu = new ArrayList<Menu>();
   expectedMenu.add(new Menu ("Show"));
 
- MenuList menuList = new MenuList(expectedMenu);
- ArrayList<Menu> menuOptions = menuList.getMenuList();
+ MenuManager menuManager = new MenuManager(expectedMenu);
+ ArrayList<Menu> menuOptions = menuManager.getMenuList();
  assertEquals(menuOptions,expectedMenu);
 }
  @Test
@@ -26,8 +26,8 @@ public void ShouldReturnAllMenuInTheMenuList() {
      expectedMenu.add(new Menu("View"));
 
      Menu selection = new Menu("Show");
-     MenuList menuList = new MenuList(expectedMenu);
-     menuList.selectAMenu(selection);
+     MenuManager menuManager = new MenuManager(expectedMenu);
+     menuManager.selectAMenu(selection);
 
      assertTrue(expectedMenu.get(0).selected);
 
@@ -37,9 +37,9 @@ public void ShouldReturnAllMenuInTheMenuList() {
         ArrayList<Menu> expectedMenu = new ArrayList<Menu>();
         expectedMenu.add(new Menu ("Show"));
         expectedMenu.add(new Menu("View"));
-        MenuList menuList = new MenuList(expectedMenu);
+        MenuManager menuManager = new MenuManager(expectedMenu);
 
-        assertTrue(menuList.stringToMenuConverter("View").equals(new Menu("View")));
+        assertTrue(menuManager.stringToMenuConverter("View").equals(new Menu("View")));
 
     }
 }

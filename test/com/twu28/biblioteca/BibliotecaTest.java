@@ -22,8 +22,8 @@ public class BibliotecaTest {
         Library lib = new Library(books);
         ArrayList<Menu> menus = new ArrayList<Menu>();
         menus.add(new Menu("Display"));
-        MenuList menuList = new MenuList(menus);
-        Biblioteca go = new Biblioteca(lib,menuList);
+        MenuManager menuManager = new MenuManager(menus);
+        Biblioteca go = new Biblioteca(lib, menuManager);
         go.run();
         //
 
@@ -50,12 +50,12 @@ public class BibliotecaTest {
 
         ArrayList<Menu> menus = new ArrayList<Menu>();
         menus.add(new Menu("Display"));
-        MenuList menuList = new MenuList(menus);
-        Biblioteca go = new Biblioteca(lib,menuList);
+        MenuManager menuManager = new MenuManager(menus);
+        Biblioteca go = new Biblioteca(lib, menuManager);
         go.run();
         //
 
-        ViewMenu infoMenu = new ViewMenu(menuList);
+        ViewMenu infoMenu = new ViewMenu(menuManager);
         int charCount = infoMenu.getMenuItemCharacterOccupancy();
 
         StringBuffer holder = new StringBuffer();

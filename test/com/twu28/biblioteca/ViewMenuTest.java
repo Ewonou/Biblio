@@ -19,9 +19,9 @@ public class ViewMenuTest {
 
         ArrayList<Menu> menus = new ArrayList<Menu>();
         menus.add(new Menu("See"));
-        MenuList menuList = new MenuList(menus);
+        MenuManager menuManager = new MenuManager(menus);
 
-        ViewMenu seeLight =  new ViewMenu(menuList);
+        ViewMenu seeLight =  new ViewMenu(menuManager);
 
         seeLight.displayMenus();
 
@@ -33,8 +33,8 @@ public class ViewMenuTest {
     //public void ShouldShowNumberOfCharacter(){
       //  ArrayList<Menu> menus = new ArrayList<Menu>();
         //menus.add(new Menu("See"));
-        //MenuList menuList = new MenuList(menus);
-        //ViewMenu furtherLight = new ViewMenu(menuList);
+        //MenuManager menuManager = new MenuManager(menus);
+        //ViewMenu furtherLight = new ViewMenu(menuManager);
 
         //assertEquals(furtherLight.getMenuItemCharacterOccupancy(), 4);
 
