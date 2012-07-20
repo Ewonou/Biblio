@@ -21,4 +21,8 @@ public class MenuList {
      }
     }
     }
+    public Menu stringToMenuConverter(String menuName){
+        Menu menu = new Menu(menuName);
+        return menu;
+    }
 }

@@ -29,7 +29,17 @@ public void ShouldReturnAllMenuInTheMenuList() {
      MenuList menuList = new MenuList(expectedMenu);
      menuList.selectAMenu(selection);
 
-     assertTrue(true == expectedMenu.get(0).selected);
+     assertTrue(expectedMenu.get(0).selected);
 
  }
+    @Test
+    public void ShouldConvertToMenu(){
+        ArrayList<Menu> expectedMenu = new ArrayList<Menu>();
+        expectedMenu.add(new Menu ("Show"));
+        expectedMenu.add(new Menu("View"));
+        MenuList menuList = new MenuList(expectedMenu);
+
+        assertTrue(menuList.stringToMenuConverter("View").equals(new Menu("View")));
+
+    }
 }

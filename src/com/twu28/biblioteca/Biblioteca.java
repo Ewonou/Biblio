@@ -1,5 +1,7 @@
 package com.twu28.biblioteca;
 
+import com.sun.xml.internal.stream.Entity;
+
 import java.util.ArrayList;
 
 /**
@@ -18,10 +20,17 @@ public class Biblioteca {
         this.menuList = menuList;
     }
 
+
     public void run() {
         System.out.printf("Welcome\n");
         ViewMenu go = new ViewMenu(menuList);
         go.displayMenus();
+
+        System.out.printf("\nPlease Enter Your Selection:");
+        //Scanner scan = new Scanner(System.in)
+        //String selection = scan.next();
+        //
+
     }
 
 
