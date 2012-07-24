@@ -14,12 +14,16 @@ public class MenuManager {
         return getMenuList().size();
     }
 
-    public void selectAMenu(Menu selection) {
+    public boolean selectAMenu(Menu selection) {
+        boolean menuFound = false;
      for (Menu item: menuList) {
         if ( item.equals(selection)){
             item.setSelected(true);
-     }
-    }
+            menuFound = true;
+            break;
+           }
+      }
+      return menuFound;
     }
     public Menu stringToMenuConverter(String menuName){
         Menu menu = new Menu(menuName);

@@ -30,8 +30,8 @@ public void ShouldReturnAllMenuInTheMenuList() {
      menuManager.selectAMenu(selection);
 
      assertTrue(expectedMenu.get(0).selected);
-
  }
+
     @Test
     public void ShouldConvertToMenu(){
         ArrayList<Menu> expectedMenu = new ArrayList<Menu>();
@@ -40,6 +40,12 @@ public void ShouldReturnAllMenuInTheMenuList() {
         MenuManager menuManager = new MenuManager(expectedMenu);
 
         assertTrue(menuManager.stringToMenuConverter("View").equals(new Menu("View")));
+
+    }
+
+    @Test
+    public void ShouldReturnFalseIfInvalidMenuEntered()
+    {
 
     }
 }

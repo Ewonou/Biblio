@@ -30,4 +30,6 @@ public ViewMenu(MenuManager menuManager){
     public int getMenuItemCharacterOccupancy(){
         return charCountOfMenuItems;
     }
+
+
 }

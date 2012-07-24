@@ -2,12 +2,14 @@ package com.twu28.biblioteca;
 
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static java.lang.String.copyValueOf;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
 
 public class BibliotecaTest {
 
@@ -47,7 +49,6 @@ public class BibliotecaTest {
         ArrayList<Book> books = new ArrayList<Book>();
         books.add(new Book("GoodBook","GoodAuthor"));
         Library lib = new Library(books);
-
         ArrayList<Menu> menus = new ArrayList<Menu>();
         menus.add(new Menu("Display"));
         MenuManager menuManager = new MenuManager(menus);
@@ -66,6 +67,61 @@ public class BibliotecaTest {
             holder.append(temp.charAt(i));
         }
         assertEquals("\nDisplay", holder.toString());
+
+    }
+
+    @Test
+    public void ShouldSelectAMenuItemFromAStringInput(){
+        ArrayList<Menu> expectedMenu = new ArrayList<Menu>();
+        expectedMenu.add(new Menu ("Show"));
+        expectedMenu.add(new Menu("View"));
+
+        String userInput = "View";
+        MenuManager menuManager = new MenuManager(expectedMenu);
+        menuManager.selectAMenu(menuManager.stringToMenuConverter(userInput));
+        assertTrue(expectedMenu.get(1).selected);
+    }
+
+    @Test
+    public void ShouldSelectAMenu()
+    {
+
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("GoodBook","GoodAuthor"));
+        Library lib = new Library(books);
+        ArrayList<Menu> menus = new ArrayList<Menu>();
+        Menu View = new Menu("View");
+        menus.add(View);
+
+        MenuManager menuManager = new MenuManager(menus);
+        Biblioteca go = new Biblioteca(lib, menuManager);
+        go.run();
+
+        assertEquals(go.selection,"View");
+        assertTrue(View.getSelected());
+    }
+
+    @Test
+    public void ShouldTellUserToSelectValidInput(){
+
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outStream);
+        System.setOut(printStream);
+
+        ArrayList<Book> books = new ArrayList<Book>();
+        books.add(new Book("GoodBook","GoodAuthor"));
+        Library lib = new Library(books);
+        ArrayList<Menu> menus = new ArrayList<Menu>();
+        Menu View = new Menu("View");
+        menus.add(View);
+
+        MenuManager menuManager = new MenuManager(menus);
+        Biblioteca go = new Biblioteca(lib, menuManager);
+        go.run();
+
+
+        BB invalidArrayMsg;
+        assertEquals("Please Select Valid Input", invalidArrayMsg.ToSting());
 
     }
 

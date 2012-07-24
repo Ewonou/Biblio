@@ -1,5 +1,8 @@
 package com.twu28.biblioteca;
 
+import java.io.*;
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Tanuj Mathur
@@ -10,6 +13,7 @@ package com.twu28.biblioteca;
 public class Biblioteca {
     private Library library;
     private MenuManager menuManager;
+    public String selection;
 
     public Biblioteca(Library library, MenuManager menuManager) {
         this.library = library;
@@ -22,10 +26,16 @@ public class Biblioteca {
         ViewMenu go = new ViewMenu(menuManager);
         go.displayMenus();
 
-        System.out.printf("\nPlease Enter Your Selection:");
-        //Scanner scan = new Scanner(System.in)
-        //String selection = scan.next();
-        //
+        System.out.printf("\nPlease enter Your Selection:");
+
+        String customerMenuChoice = "View";
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(customerMenuChoice.getBytes());
+        System.setIn(inputStream);
+
+        Scanner  scan = new Scanner(System.in);
+        selection = scan.next();
+        menuManager.selectAMenu(menuManager.stringToMenuConverter(selection));
+
 
     }
 
