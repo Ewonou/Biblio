@@ -13,6 +13,6 @@ public class BookTest {
 
     assertEquals("bookName", book.getName());
     assertEquals("authorName", book.getAuthor());
-
 }
+
 }

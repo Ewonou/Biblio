@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class MenuManager {
     private ArrayList<Menu> menuList;
+
     public MenuManager(ArrayList<Menu> expectedMenu) {
         menuList = expectedMenu;
     }
@@ -17,7 +18,9 @@ public class MenuManager {
     public boolean selectAMenu(Menu selection) {
         boolean menuFound = false;
      for (Menu item: menuList) {
-        if ( item.equals(selection)){
+         boolean compareMenus = selection.equals(item);
+
+        if ( compareMenus){
             item.setSelected(true);
             menuFound = true;
             break;

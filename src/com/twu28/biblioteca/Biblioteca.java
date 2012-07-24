@@ -11,12 +11,15 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 public class Biblioteca {
+
     private Library library;
     private MenuManager menuManager;
     public String selection;
+    boolean selectedItem;
 
     public Biblioteca(Library library, MenuManager menuManager) {
         this.library = library;
+
         this.menuManager = menuManager;
     }
 
@@ -28,16 +31,27 @@ public class Biblioteca {
 
         System.out.printf("\nPlease enter Your Selection:");
 
-        String customerMenuChoice = "View";
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(customerMenuChoice.getBytes());
-        System.setIn(inputStream);
+        changeUserInputToView("view");
 
         Scanner  scan = new Scanner(System.in);
         selection = scan.next();
-        menuManager.selectAMenu(menuManager.stringToMenuConverter(selection));
 
+        Menu menuSelected =  menuManager.stringToMenuConverter(selection);
+        selectedItem = menuManager.selectAMenu(menuSelected);
+
+        if (selectedItem){}
+
+        else {
+
+            System.out.printf("\nPlease Select Valid Input");
 
     }
+    }
 
+    private void changeUserInputToView(String menuChoice) {
+        String customerMenuChoice = menuChoice;
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(customerMenuChoice.getBytes());
+        System.setIn(inputStream);
+    }
 
 }

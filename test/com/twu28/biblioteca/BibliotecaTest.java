@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import static java.lang.String.copyValueOf;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class BibliotecaTest {
 
@@ -90,15 +92,17 @@ public class BibliotecaTest {
         books.add(new Book("GoodBook","GoodAuthor"));
         Library lib = new Library(books);
         ArrayList<Menu> menus = new ArrayList<Menu>();
-        Menu View = new Menu("View");
-        menus.add(View);
+        Menu view = new Menu("view");
+        Menu reserve = new Menu("reserve");
+        menus.add(view);
+        menus.add(reserve);
 
         MenuManager menuManager = new MenuManager(menus);
         Biblioteca go = new Biblioteca(lib, menuManager);
         go.run();
 
-        assertEquals(go.selection,"View");
-        assertTrue(View.getSelected());
+       //assertEquals(go.selection,"view");
+       assertTrue(go.selectedItem);
     }
 
     @Test
@@ -119,10 +123,13 @@ public class BibliotecaTest {
         Biblioteca go = new Biblioteca(lib, menuManager);
         go.run();
 
+        String InvalidInputMsg = outStream.toString();
 
-        BB invalidArrayMsg;
-        assertEquals("Please Select Valid Input", invalidArrayMsg.ToSting());
-
+        StringBuffer holder = new StringBuffer ();
+        for (int i = 43; i < InvalidInputMsg.length();i++){
+            holder.append(InvalidInputMsg.charAt(i));
+        }
+        assertThat(holder.toString(), is("Please Select Valid Input"));
     }
 
     }
