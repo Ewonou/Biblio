@@ -22,7 +22,7 @@ public class BibliotecaTest {
         PrintStream printStream = new PrintStream(outStream);
         System.setOut(printStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("GoodBook","GoodAuthor"));
+        books.add(new Book("GoodBook","GoodAuthor",3));
         Library lib = new Library(books);
         ArrayList<Menu> menus = new ArrayList<Menu>();
         menus.add(new Menu("Display"));
@@ -49,7 +49,7 @@ public class BibliotecaTest {
         PrintStream printStream = new PrintStream(outStream);
         System.setOut(printStream);
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("GoodBook","GoodAuthor"));
+        books.add(new Book("GoodBook","GoodAuthor",4));
         Library lib = new Library(books);
         ArrayList<Menu> menus = new ArrayList<Menu>();
         menus.add(new Menu("Display"));
@@ -89,7 +89,7 @@ public class BibliotecaTest {
     {
 
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("GoodBook","GoodAuthor"));
+        books.add(new Book("GoodBook","GoodAuthor",5));
         Library lib = new Library(books);
         ArrayList<Menu> menus = new ArrayList<Menu>();
         Menu view = new Menu("view");
@@ -113,7 +113,7 @@ public class BibliotecaTest {
         System.setOut(printStream);
 
         ArrayList<Book> books = new ArrayList<Book>();
-        books.add(new Book("GoodBook","GoodAuthor"));
+        books.add(new Book("GoodBook","GoodAuthor",6));
         Library lib = new Library(books);
         ArrayList<Menu> menus = new ArrayList<Menu>();
         Menu View = new Menu("View");
@@ -131,7 +131,6 @@ public class BibliotecaTest {
         }
         assertThat(holder.toString(), is("Please Select Valid Input"));
     }
-
 
     }
 

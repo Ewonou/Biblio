@@ -18,7 +18,7 @@ public class ViewLibraryTest {
     System.setOut(printStream);
 
     ArrayList<Book> books = new ArrayList<Book>();
-    books.add(new Book("GoodBook","GoodAuthor"));
+    books.add(new Book("GoodBook","GoodAuthor",7));
     Library lib = new Library(books);
 
     ViewLibrary sut = new ViewLibrary(lib);

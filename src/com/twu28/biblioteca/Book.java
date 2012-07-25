@@ -4,11 +4,13 @@ package com.twu28.biblioteca;
 public class Book {
     private String name;
     private String author;
-    private boolean reserved = false;
+    private int idNumber;
 
-    public Book(String bookName, String authorName) {
+    public Book(String bookName, String authorName, int Id) {
         name = bookName;
         author = authorName;
+        idNumber = Id;
+
     }
 
     public String getName() {
@@ -18,13 +20,11 @@ public class Book {
     public String getAuthor() {
         return author;
     }
-    public void setReserved() {
-        reserved = true;
-    }
-    public boolean getIfReserved() {
-        return reserved;
-    }
 
+
+    public int getIdNumber() {
+        return idNumber;
+    }
 }
 
 

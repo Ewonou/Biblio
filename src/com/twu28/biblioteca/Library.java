@@ -1,9 +1,11 @@
 package com.twu28.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
     private ArrayList<Book> books;
+    public HashMap<String,String> ReservedBooksWithUser = new HashMap<String, String>();
 
     public Library(ArrayList<Book> expectedBooks) {
 
@@ -14,32 +16,9 @@ public class Library {
         return books;
     }
 
-    public boolean selectBook(String chosenBookName, String chosenBookAuthor){
-        ArrayList<Book> tempBooksWithSameName = new ArrayList<Book>();
-        boolean selectedABook = false;
-        for (Book item:books){
-           if (item.getName()== chosenBookName){
-               tempBooksWithSameName.add(item);
-           }
-        }
-        switch (tempBooksWithSameName.size()){
-        case 0: selectedABook = false; 
-            break;
+    public void reserveBook(int idNumber, String userName) {
 
-        case 1: tempBooksWithSameName.get(0).setReserved();
-              selectedABook = true; 
-            break;
-        
-            default: for (Book item: tempBooksWithSameName){
-                if(item.getAuthor() == chosenBookAuthor){
-                    item.setReserved();
-                    selectedABook = true;
-               
-                }
-                selectedABook = false;
-            }
+        ReservedBooksWithUser.put(Integer.toString(idNumber),userName);
 
-        }
-        return selectedABook;
     }
 }

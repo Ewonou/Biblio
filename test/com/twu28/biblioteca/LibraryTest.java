@@ -14,8 +14,8 @@ public class LibraryTest {
     @Test
     public void ShouldReturnAllTheBooksInTheLibrary() {
         ArrayList<Book> expectedBooks = new ArrayList<Book>();
-        expectedBooks.add(new Book("", "")) ;
-        expectedBooks.add(new Book("", "")) ;
+        expectedBooks.add(new Book("", "",1)) ;
+        expectedBooks.add(new Book("", "",2)) ;
 
         Library library = new Library(expectedBooks);
         ArrayList<Book> books =  library.getAllBooks();
@@ -24,17 +24,14 @@ public class LibraryTest {
         assertEquals(expectedBooks.get(1), books.get(1));
     }
     @Test
-    public void ShouldSelectABookInLibrary(){
+    public void ShouldReserveABook(){
         ArrayList<Book> expectedBooks = new ArrayList<Book>();
-        Book first = new Book("Design pattern", "incognito");
-        expectedBooks.add(first) ;
-        expectedBooks.add(new Book("Design fun", "soon")) ;
-
-
+        expectedBooks.add(new Book("First", "Dan",1)) ;
+        expectedBooks.add(new Book("Second", "Switzer",2)) ;
         Library library = new Library(expectedBooks);
-        boolean successChoice = library.selectBook("Design pattern","incognito");
 
-        assertThat(successChoice, is(true));
-        assertTrue(first.getIfReserved());
+        library.reserveBook(1,"Franck");
+
+        assertTrue(library.ReservedBooksWithUser.containsKey("1"));
     }
 }
