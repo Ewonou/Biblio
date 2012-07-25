@@ -5,15 +5,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Tanuj Mathur
- * Date: 7/18/12
- * Time: 8:12 PM
- * To change this template use File | Settings | File Templates.
- */
 public class LibraryTest {
 
     @Test
@@ -27,5 +22,19 @@ public class LibraryTest {
 
         assertEquals(expectedBooks.get(0), books.get(0));
         assertEquals(expectedBooks.get(1), books.get(1));
+    }
+    @Test
+    public void ShouldSelectABookInLibrary(){
+        ArrayList<Book> expectedBooks = new ArrayList<Book>();
+        Book first = new Book("Design pattern", "incognito");
+        expectedBooks.add(first) ;
+        expectedBooks.add(new Book("Design fun", "soon")) ;
+
+
+        Library library = new Library(expectedBooks);
+        boolean successChoice = library.selectBook("Design pattern","incognito");
+
+        assertThat(successChoice, is(true));
+        assertTrue(first.getIfReserved());
     }
 }

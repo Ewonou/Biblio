@@ -40,13 +40,12 @@ public class Biblioteca {
         selectedItem = menuManager.selectAMenu(menuSelected);
 
         if (selectedItem){}
-
         else {
+           System.out.printf("\nPlease Select Valid Input");
+            }
 
-            System.out.printf("\nPlease Select Valid Input");
 
-    }
-    }
+     }
 
     private void changeUserInputToView(String menuChoice) {
         String customerMenuChoice = menuChoice;

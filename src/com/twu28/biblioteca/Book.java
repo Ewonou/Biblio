@@ -21,9 +21,10 @@ public class Book {
     public void setReserved() {
         reserved = true;
     }
-    public boolean isReserved() {
+    public boolean getIfReserved() {
         return reserved;
     }
+
 }
 
 
