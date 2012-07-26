@@ -2,6 +2,8 @@ package com.twu28.biblioteca;
 
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
@@ -39,4 +41,25 @@ public class LibraryTest {
         assertEquals("Johnny",userNames.get(1));
         assertEquals("Franck",userNames.get(0));
     }
+
+   @Test
+    public void ShoulBeNotifiedIfBookSelectedSuccessfully(){
+       ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+       PrintStream printStream = new PrintStream(outStream);
+       System.setOut(printStream);
+
+       ArrayList<Book> expectedBooks = new ArrayList<Book>();
+       expectedBooks.add(new Book("First", "Dan",1)) ;
+       expectedBooks.add(new Book("Second", "Switzer",2)) ;
+       Library library = new Library(expectedBooks);
+
+       library.reserveBook(1,"Franck");
+       String result = outStream.toString();
+
+       assertThat(result,is("Thank You! Enjoy the book."));
+
+
+
+
+   }
 }
