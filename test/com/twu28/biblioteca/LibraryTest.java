@@ -2,9 +2,11 @@ package com.twu28.biblioteca;
 
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.CoreMatchers.is;
@@ -12,6 +14,25 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
+
+    public ByteArrayOutputStream setOutputStream() {
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outStream);
+        System.setOut(printStream);
+        return outStream;
+    }
+
+    private void changeUserInputTo(String menuChoice) {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(menuChoice.getBytes());
+        System.setIn(inputStream);
+    }
+
+    public Library setupLibrary() {
+        ArrayList<Book> expectedBooks = new ArrayList<Book>();
+        expectedBooks.add(new Book("First", "Dan",1)) ;
+        expectedBooks.add(new Book("Second", "Switzer",2)) ;
+        return new Library(expectedBooks);
+    }
 
     @Test
     public void ShouldReturnAllTheBooksInTheLibrary() {
@@ -27,10 +48,8 @@ public class LibraryTest {
     }
     @Test
     public void ShouldReserveABook(){
-        ArrayList<Book> expectedBooks = new ArrayList<Book>();
-        expectedBooks.add(new Book("First", "Dan",1)) ;
-        expectedBooks.add(new Book("Second", "Switzer",2)) ;
-        Library library = new Library(expectedBooks);
+
+        Library library = setupLibrary();
 
         library.reserveBook(1,"Franck");
         library.reserveBook(1,"Johnny");
@@ -42,24 +61,35 @@ public class LibraryTest {
         assertEquals("Franck",userNames.get(0));
     }
 
-   @Test
+    @Test
     public void ShoulBeNotifiedIfBookSelectedSuccessfully(){
-       ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-       PrintStream printStream = new PrintStream(outStream);
-       System.setOut(printStream);
 
-       ArrayList<Book> expectedBooks = new ArrayList<Book>();
-       expectedBooks.add(new Book("First", "Dan",1)) ;
-       expectedBooks.add(new Book("Second", "Switzer",2)) ;
-       Library library = new Library(expectedBooks);
+        ByteArrayOutputStream outStream = setOutputStream();
+        Library library = setupLibrary();
 
-       library.reserveBook(1,"Franck");
-       String result = outStream.toString();
+        library.reserveBook(1,"Franck");
+        String result = outStream.toString();
 
-       assertThat(result,is("Thank You! Enjoy the book."));
+        assertThat(result, is("Thank You! Enjoy the book."));
+    }
 
+     @Test
+    public void ShouldReturnMsgIfBookNotAvailable(){
+        Library library = setupLibrary();
+        ByteArrayOutputStream outStream = setOutputStream();
 
+        library.reserveBook(3,"Torque");
+        String result = outStream.toString();
 
+         assertThat(result, is("Sorry we don't have that book yet"));
+    }
+    @Test
+    public void ShouldBeAbleToCheckLibraryNumber(){
+        Library library = setupLibrary();
+        changeUserInputTo("1354");
+        Scanner scan = new Scanner();
 
-   }
+        library.checkLibraryNumber()
+
+    }
 }

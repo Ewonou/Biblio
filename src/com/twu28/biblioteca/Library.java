@@ -18,24 +18,39 @@ public class Library {
     }
 
     public void reserveBook(int idNumber, String userName) {
+        int numberOfBooksChecked = 0;
+        for (Book item : books) {
+            numberOfBooksChecked++;
+           if ( item.getIdNumber() == idNumber)
+           {
+               AddBookIdAndUserToReservedList(idNumber,userName);
+               break;
+           }
+            if(numberOfBooksChecked == books.size()) {
+               System.out.printf("%s", "Sorry we don't have that book yet");
+           }
 
+        }
+    }
+
+    public void AddBookIdAndUserToReservedList(int idNumber, String userName) {
         String stringIdNumber = Integer.toString(idNumber);
 
         ArrayList<String> userNamesPerId = ReservedBooksWithUser.get(stringIdNumber);
 
-       boolean keyPresent = ReservedBooksWithUser.containsKey(stringIdNumber);
+        boolean keyPresent = ReservedBooksWithUser.containsKey(stringIdNumber);
 
         if(keyPresent) {
 
             if (userNamesPerId == null){
-             userNamesPerId = new ArrayList<String>();
+                userNamesPerId = new ArrayList<String>();
             }
             userNamesPerId.add(userName);
         }
         else{
             userNamesPerId = new ArrayList<String>();
             userNamesPerId.add(userName);
-           ReservedBooksWithUser.put(stringIdNumber,userNamesPerId);
+            ReservedBooksWithUser.put(stringIdNumber,userNamesPerId);
         }
         System.out.printf("Thank You! Enjoy the book.");
     }
