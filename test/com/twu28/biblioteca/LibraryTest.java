@@ -36,7 +36,7 @@ public class LibraryTest {
         ArrayList<String> userNames = library.ReservedBooksWithUser.get("1");
 
         assertTrue(library.ReservedBooksWithUser.containsKey("1"));
-        //assertEquals("Johnny",userNames.get(0));
-        //assertEquals("Franck",userNames.get(1));
+        assertEquals("Johnny",userNames.get(1));
+        assertEquals("Franck",userNames.get(0));
     }
 }
