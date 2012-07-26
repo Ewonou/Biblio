@@ -5,7 +5,8 @@ import java.util.HashMap;
 
 public class Library {
     private ArrayList<Book> books;
-    public HashMap<String,String> ReservedBooksWithUser = new HashMap<String, String>();
+    private ArrayList<String> userNamesArray = new ArrayList<String>();
+    public HashMap<String,ArrayList<String>> ReservedBooksWithUser = new HashMap<String, ArrayList<String>>();
 
     public Library(ArrayList<Book> expectedBooks) {
 
@@ -18,7 +19,23 @@ public class Library {
 
     public void reserveBook(int idNumber, String userName) {
 
-        ReservedBooksWithUser.put(Integer.toString(idNumber),userName);
+        String stringIdNumber = Integer.toString(idNumber);
 
+        ArrayList<String> userNamesPerId = ReservedBooksWithUser.get(stringIdNumber);
+
+       boolean keyPresent = ReservedBooksWithUser.containsKey(stringIdNumber);
+
+        if(keyPresent) {
+
+            if (userNamesPerId == null){
+             userNamesPerId = new ArrayList<String>();
+            }
+            userNamesPerId.add(userName);
+        }
+        else{
+            userNamesPerId = new ArrayList<String>();
+            userNamesPerId.add(userName);
+           ReservedBooksWithUser.put(stringIdNumber,userNamesPerId);
+        }
     }
 }
