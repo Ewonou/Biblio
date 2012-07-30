@@ -11,6 +11,23 @@ import static junit.framework.Assert.assertTrue;
 
 public class ViewMenuTest {
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*
     @Test
     public void ShouldDisplayMenuItems(){
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -40,4 +57,4 @@ public class ViewMenuTest {
 
 
    // }
-}
+   */

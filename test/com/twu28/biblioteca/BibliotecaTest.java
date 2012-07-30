@@ -15,7 +15,11 @@ import static org.junit.Assert.assertThat;
 
 public class BibliotecaTest {
 
-    @Test
+
+    }
+
+/*
+ @Test
     public void ShouldDisplayAWelcomeAtStart()
     {   //Setup
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
@@ -132,8 +136,6 @@ public class BibliotecaTest {
         assertThat(holder.toString(), is("Please Select Valid Input"));
     }
 
-    }
-
-
+ */
 
 

@@ -83,13 +83,6 @@ public class LibraryTest {
 
          assertThat(result, is("Sorry we don't have that book yet"));
     }
-    @Test
-    public void ShouldBeAbleToCheckLibraryNumber(){
-        Library library = setupLibrary();
-        changeUserInputTo("1354");
-        Scanner scan = new Scanner();
 
-        library.checkLibraryNumber()
 
-    }
 }

@@ -5,8 +5,22 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Biblioteca {
+    private  BibliotecaView view;
+    public Biblioteca (BibliotecaView view){
+        this.view = view;
+    }
 
-    private Library library;
+    public void run(){
+        view.displayWelcome();
+        view.msgBeforeMenuDisplay();
+    }
+}
+
+
+
+
+
+/*private Library library;
     private MenuManager menuManager;
     public String selection;
     boolean selectedItem;
@@ -41,5 +55,4 @@ public class Biblioteca {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(customerMenuChoice.getBytes());
         System.setIn(inputStream);
     }
-
-}
+    */

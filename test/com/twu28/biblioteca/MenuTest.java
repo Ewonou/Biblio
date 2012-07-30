@@ -10,24 +10,26 @@ public class MenuTest {
     @Test
     public void shouldPopulateMenuName(){
         Menu menu = new Menu("show");
-
         assertEquals("show",menu.getName());
     }
 
-    @Test
-    public void shouldSetSelectedAndGetSelected(){
+}
+
+
+
+/* @Test
+public void shouldSetSelectedAndGetSelected(){
         Menu menu = new Menu("View");
-        menu.setSelected(true);
+menu.setSelected(true);
 
-        assertTrue(true == menu.selected);
-        assertTrue(true == menu.getSelected());
-
-    }
-    @Test
-    public void ShouldVerifyEquality(){
-
-        assertTrue(new Menu("open").equals(new Menu("open")));
-        assertFalse(new Menu("open").equals(new Menu("opne")));
-    }
+assertTrue(true == menu.selected);
+assertTrue(true == menu.getSelected());
 
 }
+@Test
+public void ShouldVerifyEquality(){
+
+        assertTrue(new Menu("open").equals(new Menu("open")));
+assertFalse(new Menu("open").equals(new Menu("opne")));
+}
+*/

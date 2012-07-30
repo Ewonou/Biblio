@@ -10,7 +10,6 @@ public class Book {
         name = bookName;
         author = authorName;
         idNumber = Id;
-
     }
 
     public String getName() {
@@ -20,7 +19,6 @@ public class Book {
     public String getAuthor() {
         return author;
     }
-
 
     public int getIdNumber() {
         return idNumber;
