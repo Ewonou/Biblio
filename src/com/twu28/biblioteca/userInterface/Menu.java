@@ -1,18 +1,18 @@
-package com.twu28.biblioteca;
+package com.twu28.biblioteca.userInterface;
 
 import java.util.ArrayList;
 
-  public class MenuManager {
-    private MenuManagerView view = new MenuManagerView();
-    private ArrayList<Menu> menuList;
+  public class Menu {
+    private MenuView view = new MenuView();
+    private ArrayList<MenuOption> menuList;
     private ArrayList<String> menuInfo = new ArrayList<String>();
-    public MenuManager(ArrayList<Menu> expectedMenu,MenuManagerView view) {
+    public Menu(ArrayList<MenuOption> expectedMenu, MenuView view) {
         menuList = expectedMenu;
         this.view = view;
     }
      public ArrayList<String> getMenuNames(){
          int count = 1;
-         for (Menu item: menuList) {
+         for (MenuOption item: menuList) {
              menuInfo.add( count + " " + item.getName());
              count++;
          }

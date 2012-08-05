@@ -1,4 +1,4 @@
-package com.twu28.biblioteca;
+package com.twu28.biblioteca.userInterface;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import static junit.framework.Assert.assertEquals;
 
 
-public class MenuManagerViewTest {
+public class MenuViewTest {
     private ByteArrayOutputStream outStream;
 
     private void outputSetup(){
@@ -19,7 +19,7 @@ public class MenuManagerViewTest {
     @Test
     public void ShouldDisplaySelectAValidOption(){
         outputSetup();
-       MenuManagerView go = new MenuManagerView();
+       MenuView go = new MenuView();
        go.notifyUserToSelectValidOption();
 
        assertEquals("Select a valid Option!!",outStream.toString());

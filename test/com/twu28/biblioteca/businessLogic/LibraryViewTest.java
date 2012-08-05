@@ -1,5 +1,8 @@
-package com.twu28.biblioteca;
+package com.twu28.biblioteca.businessLogic;
 
+import com.twu28.biblioteca.businessLogic.Book;
+import com.twu28.biblioteca.businessLogic.Library;
+import com.twu28.biblioteca.businessLogic.LibraryView;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +13,6 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class LibraryViewTest {
     ByteArrayOutputStream outStream;

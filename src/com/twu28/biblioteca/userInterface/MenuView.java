@@ -1,11 +1,11 @@
-package com.twu28.biblioteca;
+package com.twu28.biblioteca.userInterface;
 
 import com.sun.xml.internal.stream.Entity;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MenuManagerView {
+public class MenuView {
     public void displayMenuNames(ArrayList<String> menuNames){
        for (String menuName: menuNames ) {
               System.out.printf(menuName + " ");

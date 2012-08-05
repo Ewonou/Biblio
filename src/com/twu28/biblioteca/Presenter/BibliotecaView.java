@@ -1,4 +1,4 @@
-package com.twu28.biblioteca;
+package com.twu28.biblioteca.Presenter;
 
 
 import java.util.Scanner;
@@ -8,7 +8,7 @@ public class BibliotecaView {
     System.out.printf("Welcome");
     }
     public void msgBeforeMenuDisplay(){
-        System.out.printf("Please Enter the number corresponding to your desired Menu");
+        System.out.printf("Please Enter the number corresponding to your desired MenuOption");
     }
 
     public String menuSelectionCapture(){

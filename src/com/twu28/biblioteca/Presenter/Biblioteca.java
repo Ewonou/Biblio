@@ -1,8 +1,4 @@
-package com.twu28.biblioteca;
-
-import java.awt.*;
-import java.io.*;
-import java.util.Scanner;
+package com.twu28.biblioteca.Presenter;
 
 public class Biblioteca {
 
