@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public class Library {
     private ArrayList<Book> books;
-    private ArrayList<String> userNamesArray = new ArrayList<String>();
     private HashMap<String,ArrayList<String>> reservedBooksWithUser = new HashMap<String, ArrayList<String>>();
     private LibraryView myView = new LibraryView(this);
     public Library(ArrayList<Book> expectedBooks) {

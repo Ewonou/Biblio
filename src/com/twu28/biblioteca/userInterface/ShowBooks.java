@@ -15,7 +15,7 @@ public class ShowBooks extends MenuOption{
     public ShowBooks(String menuName) {
         super(menuName);
     }
-    public void run(){
+    /*public void run(){
         int count = 0;
         ArrayList<Book> books = library.getAllBooks();
         for(Book i:books)  {
@@ -23,5 +23,5 @@ public class ShowBooks extends MenuOption{
             System.out.printf("%s By %s, ID# %s\n", i.getName(), i.getAuthor(), i.getIdNumber());
         }
         return count;
-    }
+    }   */
 }
