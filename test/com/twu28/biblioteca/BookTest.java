@@ -1,22 +1,48 @@
 package com.twu28.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
 
 public class BookTest {
-@Test
-    public void shouldPopulateNameAndAuthor(){
-    Book book = new Book("bookName", "authorName",12);
+    Book book;
+    @Before
+    public void settingABook(){
+        book = new Book("bookName", "authorName",12,1);
+    }
 
+    @Test
+    public void shouldPopulateNameAndAuthor(){
+    settingABook();
     assertEquals("bookName", book.getName());
     assertEquals("authorName", book.getAuthor());
 }
 
-@Test
-public void ShouldReturnBookIdNumber(){
-    Book book = new Book("bookName","authorName",12);
+    @Test
+    public void ShouldReturnBookIdNumber(){
+    settingABook();
     assertEquals(book.getIdNumber(),12);}
+
+    @Test
+    public void ShouldDecreaseBookQuantity(){
+     settingABook();
+     assertEquals(0 , book.decreaseBookQty());
+    }
+
+    @Test
+    public void ShouldDetermineBookAvailability(){
+        settingABook();
+        assertTrue(book.isBookAvailable());
+        book.decreaseBookQty();
+        assertFalse(book.isBookAvailable());
+    }
+
+
 }
+

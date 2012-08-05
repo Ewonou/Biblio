@@ -8,8 +8,9 @@ public class BibliotecaView {
     System.out.printf("Welcome");
     }
     public void msgBeforeMenuDisplay(){
-        System.out.printf("Please Select among the following menus");
+        System.out.printf("Please Enter the number corresponding to your desired Menu");
     }
+
     public String menuSelectionCapture(){
         Scanner scan = new Scanner(System.in);
         return scan.next();

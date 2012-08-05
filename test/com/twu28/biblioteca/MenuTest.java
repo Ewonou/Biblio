@@ -8,28 +8,15 @@ import static junit.framework.Assert.assertTrue;
 
 public class MenuTest {
     @Test
-    public void shouldPopulateMenuName(){
-        Menu menu = new Menu("show");
-        assertEquals("show",menu.getName());
+    public void ShouldReturnName(){
+        Menu view = new MenuOption("view");
+       assertEquals("view",view.getName());
+    }
+    @Test
+    public void ShouldSelectMenu(){
+        Menu view = new MenuOption("view");
+        view.setSelected(true);
+        assertEquals(view.checkSelection(),true);
     }
 
 }
-
-
-
-/* @Test
-public void shouldSetSelectedAndGetSelected(){
-        Menu menu = new Menu("View");
-menu.setSelected(true);
-
-assertTrue(true == menu.selected);
-assertTrue(true == menu.getSelected());
-
-}
-@Test
-public void ShouldVerifyEquality(){
-
-        assertTrue(new Menu("open").equals(new Menu("open")));
-assertFalse(new Menu("open").equals(new Menu("opne")));
-}
-*/

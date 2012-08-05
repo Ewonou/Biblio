@@ -5,11 +5,14 @@ public class Book {
     private String name;
     private String author;
     private int idNumber;
+    private int quantity;
 
-    public Book(String bookName, String authorName, int Id) {
+
+    public Book(String bookName, String authorName, int Id, int qty) {
         name = bookName;
         author = authorName;
         idNumber = Id;
+        quantity = qty;
     }
 
     public String getName() {
@@ -22,6 +25,14 @@ public class Book {
 
     public int getIdNumber() {
         return idNumber;
+    }
+
+    public int decreaseBookQty() {
+        return --quantity;
+    }
+
+    public boolean isBookAvailable() {
+        return (quantity > 0);
     }
 }
 

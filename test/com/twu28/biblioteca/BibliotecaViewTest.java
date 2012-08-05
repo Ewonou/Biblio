@@ -13,18 +13,16 @@ public class BibliotecaViewTest {
 
     private ByteArrayOutputStream outStream;
 
-    private ByteArrayOutputStream outputSetup(){
+    private void outputSetup(){
      outStream = new ByteArrayOutputStream();
      PrintStream printStream = new PrintStream(outStream);
      System.setOut(printStream);
-     return outStream;
     }
 
     @Test
     public void ShouldDisplayWelcome(){
-    outStream = outputSetup();
-    BibliotecaView view = new BibliotecaView();
-    Biblioteca go = new Biblioteca(view);
+    outputSetup();
+    Biblioteca go = new Biblioteca();
     go.run();
     StringBuffer holder = new StringBuffer();
     String temp =  outStream.toString();
